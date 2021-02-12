@@ -7,6 +7,7 @@ p.disconnect
 
 p.setGravity(0,0,-9.8)
 p.loadURDF("plane.urdf")
+p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 
 for i in range(1000):
