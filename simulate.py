@@ -3,6 +3,8 @@ import time as t
 physicsClient = p.connect(p.GUI)
 p.disconnect
 
+p.setGravity(0,0,-9.8)
+
 p.loadSDF("box.sdf")
 
 for i in range(1000):
