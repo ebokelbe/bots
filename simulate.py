@@ -14,11 +14,15 @@ p.loadURDF("plane.urdf")
 robot = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 
+amplitude = np.pi/4
+frequency = 10
+phaseOffset = 0
+
 pyrosim.Prepare_To_Simulate("body.urdf")
 backLegSensorValues = np.zeros(1000)
 frontLegSensorValues = np.zeros(1000)
 x = np.linspace(-np.pi, np.pi, 1000)
-targetAngles = (np.pi/4)*(np.sin(x))
+targetAngles = amplitude*(np.sin(frequency * x + phaseOffset))
 
 #np.save('data/targetAngles.npy', targetAngles)
 
