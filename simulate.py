@@ -20,6 +20,8 @@ frontLegSensorValues = np.zeros(1000)
 x = np.linspace(-np.pi, np.pi, 1000)
 targetAngles = np.sin(x)
 
+np.save('data/targetAngles.npy', targetAngles)
+
 
 for i in range(1000):
     p.stepSimulation()
@@ -43,4 +45,3 @@ for i in range(1000):
     t.sleep(1/60)
 np.save('data/backLegSensorValues.npy', backLegSensorValues)
 np.save('data/frontLegSensorValues.npy', frontLegSensorValues)
-np.save('data/targetAngles.npy', targetAngles)
