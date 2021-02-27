@@ -18,7 +18,8 @@ pyrosim.Prepare_To_Simulate("body.urdf")
 backLegSensorValues = np.zeros(1000)
 frontLegSensorValues = np.zeros(1000)
 x = np.linspace(-np.pi, np.pi, 1000)
-targetAngles = np.sin(x)
+targetAngles = (np.pi/4)*(np.sin(x))
+
 
 np.save('data/targetAngles.npy', targetAngles)
 
