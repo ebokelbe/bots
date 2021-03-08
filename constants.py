@@ -1,3 +1,5 @@
+import numpy as np
+
 backAmplitude = np.pi/4
 backFrequency = 10
 backPhaseOffset = 0
