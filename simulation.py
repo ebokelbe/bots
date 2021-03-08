@@ -11,7 +11,6 @@ class SIMULATION:
     def __init__(self):
         self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
-        p.disconnect
         p.setGravity(0,0,-9.8)
 
         self.world = WORLD()
@@ -37,3 +36,6 @@ class SIMULATION:
                 maxForce = 25)
 
             t.sleep(1/60)
+
+    def __del__(self):
+        p.disconnect()
