@@ -4,6 +4,7 @@ import time as t
 import pyrosim.pyrosim as pyrosim
 import numpy as np
 import random as r
+import constants as c
 
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -14,15 +15,6 @@ p.loadURDF("plane.urdf")
 robot = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 
-backAmplitude = np.pi/4
-backFrequency = 10
-backPhaseOffset = 0
-
-frontAmplitude = np.pi/5
-frontFrequency = 10 
-frontPhaseOffset = 0
-
-
 pyrosim.Prepare_To_Simulate("body.urdf")
 backLegSensorValues = np.zeros(1000)
 frontLegSensorValues = np.zeros(1000)
@@ -31,8 +23,8 @@ frontTargetAngles = np.zeros(1000)
 x = np.linspace(-np.pi, np.pi, 1000)
 
 for j in range(1000):
-    backTargetAngles[j] = backAmplitude * np.sin(backFrequency * x[j] + backPhaseOffset)
-    frontTargetAngles[j] = frontAmplitude * np.sin(frontFrequency * x[j] + frontPhaseOffset)
+    backTargetAngles[j] = c.backAmplitude * np.sin(c.backFrequency * x[j] + c.backPhaseOffset)
+    frontTargetAngles[j] = c.frontAmplitude * np.sin(c.frontFrequency * x[j] + c.frontPhaseOffset)
 
 #np.save('data/backTargetAngles.npy', backTargetAngles)
 #np.save('data/frontTargetAngles.npy', frontTargetAngles)
