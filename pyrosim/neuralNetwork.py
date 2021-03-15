@@ -1,6 +1,6 @@
-from pyrosim.neuron  import NEURON
+from neuron  import NEURON
 
-from pyrosim.synapse import SYNAPSE
+from synapse import SYNAPSE
 
 class NEURAL_NETWORK: 
 
@@ -27,6 +27,10 @@ class NEURAL_NETWORK:
         self.Print_Motor_Neuron_Values()
 
         print("")
+
+    def Update(self):
+        for i in self.neurons:
+            print(i)
 
 # ---------------- Private methods --------------------------------------
 
