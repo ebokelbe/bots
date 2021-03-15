@@ -1,8 +1,8 @@
 import math
 
-import pyrosim
+import pyrosim.pyrosim as pyrosim
 
-import constants as c
+import pyrosim.constants as c
 
 class SYNAPSE: 
 
