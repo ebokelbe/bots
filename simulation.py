@@ -15,13 +15,14 @@ class SIMULATION:
 
         self.world = WORLD()
         self.robot = ROBOT()
+        
 
     def Run(self):
         for i in range(1000):
             p.stepSimulation()
 
             self.robot.Sense(i)
-
+            self.robot.Think()
             self.robot.Act(i)
 
             t.sleep(1/60)
