@@ -35,6 +35,16 @@ class NEURAL_NETWORK:
             else:
                 self.neurons[i].Update_Hidden_Or_Motor_Neuron()
 
+    def Get_Neuron_Names(self):
+        return self.neurons.keys()
+
+    def Is_Motor_Neuron(self, neuronName):
+        neuron = self.neurons[neuronName]
+        if neuron.Is_Motor_Neuron():
+            return True
+        else:
+            return False
+
 # ---------------- Private methods --------------------------------------
 
     def Add_Neuron_According_To(self,line):
