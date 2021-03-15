@@ -49,6 +49,10 @@ class NEURAL_NETWORK:
         neuron = self.neurons[neuronName]
         return neuron.Get_Joint_Name()
 
+    def Get_Value_Of(self, neuronName):
+        neuron = self.neurons[neuronName]
+        return neuron.Get_Value()
+
 # ---------------- Private methods --------------------------------------
 
     def Add_Neuron_According_To(self,line):
