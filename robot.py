@@ -33,10 +33,6 @@ class ROBOT:
                 desiredAngle = self.nn.Get_Value_Of(neuronName)
                 for i in self.motors:
                     self.motors[i].Set_Value(self.robot, desiredAngle)
-                print(neuronName, jointName, desiredAngle)
-
-        # for i in self.motors:
-        #     self.motors[i].Set_Value(self.robot, t)
 
     def Think(self):
         self.nn.Update()
