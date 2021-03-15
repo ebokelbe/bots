@@ -45,6 +45,10 @@ class NEURAL_NETWORK:
         else:
             return False
 
+    def Get_Motor_Neurons_Joint(self, neuronName):
+        neuron = self.neurons[neuronName]
+        return neuron.Get_Joint_Name
+
 # ---------------- Private methods --------------------------------------
 
     def Add_Neuron_According_To(self,line):
