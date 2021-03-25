@@ -3,7 +3,7 @@ import pyrosim.pyrosim as pyrosim
 
 class SOLUTION:
     def __init__(self):
-        self.weights = np.random.rand(2, 3)
+        self.weights = np.random.rand(3, 2)
         self.weights = self.weights * 2 - 1
 
     def Evaluate(self):
@@ -47,6 +47,6 @@ class SOLUTION:
 
         for currentColumn in {0, 1, 2}:
             for currentRow in {0, 1}:
-                pyrosim.Send_Synapse( sourceNeuronName=currentColumn, targetNeuronName=currentRow, weight=self.weights[currentColumn][currentRow+3] )
+                pyrosim.Send_Synapse( sourceNeuronName=currentColumn, targetNeuronName=currentRow+3, weight=self.weights[currentColumn][currentRow] )
 
         pyrosim.End()
