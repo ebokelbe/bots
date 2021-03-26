@@ -14,7 +14,7 @@ class SOLUTION:
         os.system("python simulate.py")
         f = open("fitness.txt", "r")
         self.fitness = float(f.read())
-        f.close()   # You are on step 49
+        f.close()
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
