@@ -1,5 +1,5 @@
 from solution import SOLUTION
-from pyrosim import constants as c
+import constants as c
 import copy
 
 class HILL_CLIMBER:
