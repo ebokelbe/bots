@@ -12,6 +12,9 @@ class SOLUTION:
         self.Create_Body()
         self.Create_Brain()
         os.system("python simulate.py")
+        f = open("fitness.txt", "r")
+        self.fitness = float(f.read())
+        f.close()   # You are on step 49
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
@@ -47,8 +50,8 @@ class SOLUTION:
     # pyrosim.Send_Synapse( sourceNeuronName=0, targetNeuronName=4, weight=-1.0 )
     # pyrosim.Send_Synapse( sourceNeuronName=2, targetNeuronName=4, weight=-1.0 )
 
-        for currentColumn in {0, 1, 2}:
-            for currentRow in {0, 1}:
-                pyrosim.Send_Synapse( sourceNeuronName=currentColumn, targetNeuronName=currentRow+3, weight=self.weights[currentColumn][currentRow] )
+        for currentRow in {0, 1, 2}:
+            for currentColumn in {0, 1}:
+                pyrosim.Send_Synapse( sourceNeuronName=currentRow, targetNeuronName=currentColumn+3, weight=self.weights[currentRow][currentColumn] )
 
         pyrosim.End()
