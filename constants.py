@@ -6,4 +6,4 @@ backPhaseOffset = 0
 
 x = np.linspace(-np.pi, np.pi, 1000)
 
-numberOfGenerations = 10
+numberOfGenerations = 15
