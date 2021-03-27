@@ -8,8 +8,12 @@ import time as t
 
 
 class SIMULATION:
-    def __init__(self):
-        self.physicsClient = p.connect(p.GUI)
+    def __init__(self, directOrGui):
+        if directOrGui == "DIRECT":
+            self.physicsClient = p.connect(p.DIRECT)
+        elif directOrGui == "GUI":
+            self.physicsClient = p.connect(p.GUI)
+
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)
 
@@ -18,7 +22,7 @@ class SIMULATION:
         
 
     def Run(self):
-        for i in range(250):
+        for i in range(350):
             p.stepSimulation()
 
             self.robot.Sense(i)
@@ -26,6 +30,9 @@ class SIMULATION:
             self.robot.Act(i)
 
             t.sleep(1/60)
+
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
 
     def __del__(self):
         p.disconnect()
