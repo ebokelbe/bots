@@ -4,7 +4,8 @@ import os
 import random
 
 class SOLUTION:
-    def __init__(self):
+    def __init__(self, ID):
+        self.myID = ID
         self.weights = np.random.rand(3, 2)
         self.weights = self.weights * 2 - 1
 
@@ -12,7 +13,7 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system("python simulate.py " + directOrGui)
+        os.system("start /B python simulate.py " + directOrGui)
         f = open("fitness.txt", "r")
         self.fitness = float(f.read())
         f.close()
@@ -61,3 +62,6 @@ class SOLUTION:
         randRow = random.randint(0, 2)
         randCol = random.randint(0, 1)
         self.weights[randRow][randCol] = random.random() * 2 - 1
+
+    def Set_ID(self, ID):
+        self.myID = ID
