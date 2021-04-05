@@ -2,21 +2,13 @@ import numpy as np
 import pyrosim.pyrosim as pyrosim
 import os
 import random
+import time as t
 
 class SOLUTION:
     def __init__(self, ID):
         self.myID = ID
         self.weights = np.random.rand(3, 2)
         self.weights = self.weights * 2 - 1
-
-    def Evaluate(self, directOrGui):
-        self.Create_World()
-        self.Create_Body()
-        self.Create_Brain()
-        os.system("start /B python simulate.py " + directOrGui + " " + str(self.myID))
-        f = open("fitness" + str(self.myID) + ".txt", "r")
-        self.fitness = float(f.read())
-        f.close()
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")
@@ -65,3 +57,18 @@ class SOLUTION:
 
     def Set_ID(self, ID):
         self.myID = ID
+
+    def Start_Simulation(self, directOrGui):
+        self.Create_World()
+        self.Create_Body()
+        self.Create_Brain()
+        #exit()
+        os.system("start /B python simulate.py " + directOrGui + " " + str(self.myID))
+
+    def Wait_For_Simulation_To_End(self):
+        while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+            t.sleep(0.01)
+        f = open("fitness" + str(self.myID) + ".txt", "r")
+        self.fitness = float(f.read())
+        f.close()
+        os.system("del fitness" + str(self.myID) + ".txt")
