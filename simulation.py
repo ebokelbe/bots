@@ -8,7 +8,7 @@ import time as t
 
 
 class SIMULATION:
-    def __init__(self, directOrGui, solutionID):  # step 39
+    def __init__(self, directOrGui, solutionID):
         self.directOrGui = directOrGui
         if self.directOrGui == "DIRECT":
             self.physicsClient = p.connect(p.DIRECT)
@@ -33,8 +33,8 @@ class SIMULATION:
             if self.directOrGui == "GUI":
                 t.sleep(1/60)
 
-    def Get_Fitness(self):
-        self.robot.Get_Fitness()
+    def Get_Fitness(self, solutionID):
+        self.robot.Get_Fitness(solutionID)
 
     def __del__(self):
         p.disconnect()
