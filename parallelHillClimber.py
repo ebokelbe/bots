@@ -21,8 +21,7 @@ class PARALLEL_HILL_CLIMBER:
     def Evolve_For_One_Generation(self):
         self.Spawn()
         self.Mutate()
-        # self.child.Evaluate("DIRECT")
-        # self.Print()
+        self.Print()
         # self.Select()
 
     def Spawn(self):
@@ -41,7 +40,10 @@ class PARALLEL_HILL_CLIMBER:
             self.parent = self.child
 
     def Print(self):
-        print("\n( " + str(self.parent.fitness) + ", " + str(self.child.fitness) + " )")
+        print("\n")
+        for i in self.parents:
+            print("( " + str(self.parents[i].fitness) + ", " + str(self.children[i].fitness) + " )")
+        print("\n")
 
     def Show_Best(self):
         pass
