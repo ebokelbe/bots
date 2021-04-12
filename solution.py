@@ -3,11 +3,12 @@ import pyrosim.pyrosim as pyrosim
 import os
 import random
 import time as t
+import constants as c
 
 class SOLUTION:
     def __init__(self, ID):
         self.myID = ID
-        self.weights = np.random.rand(3, 2)
+        self.weights = np.random.rand(c.numSensorNeurons, c.numMotorNeurons)
         self.weights = self.weights * 2 - 1
 
     def Create_World(self):
@@ -44,15 +45,15 @@ class SOLUTION:
     # pyrosim.Send_Synapse( sourceNeuronName=0, targetNeuronName=4, weight=-1.0 )
     # pyrosim.Send_Synapse( sourceNeuronName=2, targetNeuronName=4, weight=-1.0 )
 
-        for currentRow in {0, 1, 2}:
-            for currentColumn in {0, 1}:
-                pyrosim.Send_Synapse( sourceNeuronName=currentRow, targetNeuronName=currentColumn+3, weight=self.weights[currentRow][currentColumn] )
+        for currentRow in range(c.numSensorNeurons):
+            for currentColumn in range(c.numMotorNeurons):
+                pyrosim.Send_Synapse( sourceNeuronName=currentRow, targetNeuronName=currentColumn+c.numSensorNeurons, weight=self.weights[currentRow][currentColumn] )
 
         pyrosim.End()
 
     def Mutate(self):
-        randRow = random.randint(0, 2)
-        randCol = random.randint(0, 1)
+        randRow = random.randint(0, c.numSensorNeurons-1)
+        randCol = random.randint(0, c.numMotorNeurons-1)
         self.weights[randRow][randCol] = random.random() * 2 - 1
 
     def Set_ID(self, ID):
