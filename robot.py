@@ -44,9 +44,9 @@ class ROBOT:
     def Get_Fitness(self, solutionID):
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robot)
         basePosition = basePositionAndOrientation[0]
-        xPosition = basePosition[0]
+        zPosition = basePosition[2]  # changed to z to maximize height of robot
 
         f = open("tmp" + str(self.myID) + ".txt", "w")
-        f.write(str(xPosition))
+        f.write(str(zPosition))
         f.close()
         os.system("rename tmp" + str(self.myID) + ".txt fitness" + str(self.myID) + ".txt")
