@@ -23,7 +23,7 @@ class SIMULATION:
         
 
     def Run(self):
-        for i in range(350):
+        for i in range(1500):
             p.stepSimulation()
 
             self.robot.Sense(i)
