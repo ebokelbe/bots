@@ -70,4 +70,4 @@ class PARALLEL_HILL_CLIMBER:
             self.fitnessMatrix[solution, generation] = solutions[solution].fitness  # add fitness value to matrix
     
     def SaveFitnessMatrix(self):
-        np.save('fitnessValues.npy', self.fitnessMatrix, delimiter=',')
+        np.save('fitnessValuesA.npy', self.fitnessMatrix, delimiter=',')
